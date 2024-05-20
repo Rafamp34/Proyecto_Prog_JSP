@@ -14,4 +14,10 @@ console.log("Script loaded");
     }
     });
     
+function confirmDelete(id) {
+  if (confirm("¿Estás seguro de que deseas eliminar esta fila?")) {
+      window.location.href = 'eliminar.jsp?id=' + id;
+  }
+}
+  
 

@@ -68,6 +68,10 @@ public class HomeView {
         htmlBuilder.append("    <div class=\"content\" id=\"home\">");
         htmlBuilder.append("      <h1>Home</h1>");
         htmlBuilder.append("      <p>Bienvenido a la página principal. Aquí puedes encontrar información importante y recursos.</p>");
+
+        htmlBuilder.append("      <div class=\"text-right mb-3\">");
+        htmlBuilder.append("        <a href='agregar.jsp' class='btn btn-success btn-sm'>Agregar Datos Nuevos</a>");
+        htmlBuilder.append("      </div>");
         
         String sql = "SELECT ID, NumeroCuenta, NombreTitular, saldo, TipoTarjeta FROM datosbancarios";
         try {
@@ -88,7 +92,7 @@ public class HomeView {
                 htmlBuilder.append("<tr><td>").append(NumeroCuenta).append("</td><td>").append(NombreTitular).append("</td><td>").append(saldo).append("</td><td>").append(TipoTarjeta).append("</td>");
                 htmlBuilder.append("<td>");
                 htmlBuilder.append("<a href='modficar.jsp?id=").append(id).append("' class='btn btn-warning btn-sm'>Modificar</a> ");
-                htmlBuilder.append("<a href='eliminar.jsp?id=").append(id).append("' class='btn btn-danger btn-sm'>Eliminar</a>");
+                htmlBuilder.append("<a href='eliminarRegistro.jsp?id=").append(id).append("' class='btn btn-danger btn-sm'>Eliminar</a> ");
                 htmlBuilder.append("</td></tr>");
             }
             htmlBuilder.append("</tbody>");
@@ -177,7 +181,8 @@ public class HomeView {
         htmlBuilder.append("      </div>");
         htmlBuilder.append("    </div>");
         htmlBuilder.append("  </div>");
+
+        htmlBuilder.append("<script src='scriptHome.js'></script>"); // Add this line to include the script
         return htmlBuilder.toString();
-                
     }
 }

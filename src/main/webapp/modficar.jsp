@@ -41,9 +41,6 @@
     String dbpassword = "12345";
     ConnectionPool pool = new ConnectionPool("jdbc:mysql://localhost:3306/login", dbuser, dbpassword);
     DatosBancariosService service = new DatosBancariosService(pool.getConnection());
-    // Obtener los datos correspondientes a este ID de la base de datos
-    // Supongamos que tienes un método para obtener los datos de la base de datos
-    // Aquí estamos suponiendo que tienes un método llamado obtenerDatosPorId(id) que devuelve un objeto DatosBancarios
     DatosBancarios datos = service.requestById(id); %>
     <script>
         document.getElementById("nombreTitular").setAttribute("placeholder", "<%= datos.getNombreTitular() %>");
